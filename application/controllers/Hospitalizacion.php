@@ -237,5 +237,19 @@ class Hospitalizacion extends CI_Controller
         $this->Hospitalizacion_model->eliminar_tipo_diagnostico($id);
         redirect('hospitalizacion/lista_tipos_diagnostico');
     }
+
+    //  CONSULTAS
+ 
+    public function consulta_hospitalizados()
+    {
+        $data['lista'] = $this->Hospitalizacion_model->pacientes_hospitalizados();
+        $this->load->view('hospitalizacion/consultaHospitalizados', $data);
+    }
+ 
+    public function consulta_por_sala()
+    {
+        $data['lista'] = $this->Hospitalizacion_model->pacientes_por_sala();
+        $this->load->view('hospitalizacion/consultaSala', $data);
+    }
 }
 ?>

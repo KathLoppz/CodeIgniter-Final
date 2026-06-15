@@ -101,6 +101,28 @@
             </a>
         </div>
     </div>
+
+    <!-- Consultas -->
+    <p class="seccion-label fw-bolder">Consultas</p>
+    <div class="row g-4">
+
+        <div class="col-md-6">
+            <a href="<?= site_url('hospitalizacion/consulta_hospitalizados') ?>" class="card card-modulo card-hosp p-4 d-block">
+                <div class="card-icon"><i class="bi bi-person-check-fill"></i></div>
+                <h5 class="fw-bold mb-1">Pacientes Hospitalizados</h5>
+                <p class="mb-0 opacity-75">Ver pacientes actualmente internados.</p>
+            </a>
+        </div>
+
+        <div class="col-md-6">
+            <a href="<?= site_url('hospitalizacion/consulta_por_sala') ?>" class="card card-modulo card-salas p-4 d-block">
+                <div class="card-icon"><i class="bi bi-bar-chart-fill"></i></div>
+                <h5 class="fw-bold mb-1">Ocupacion por Sala</h5>
+                <p class="mb-0 opacity-75">Ver cuantos pacientes hay en cada sala.</p>
+            </a>
+        </div>
+
+    </div>
 </div>
 
 </body>

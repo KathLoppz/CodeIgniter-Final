@@ -62,21 +62,20 @@ $route['hospitalizacion/editar/(:num)'] = 'Hospitalizacion/editar/$1';
 $route['hospitalizacion/actualizar/(:num)'] = 'Hospitalizacion/actualizar/$1';
 $route['hospitalizacion/eliminar/(:num)'] = 'Hospitalizacion/eliminar/$1';
 
-$route['hospitalizacion/lista_hospitalizaciones']              = 'Hospitalizacion/lista_hospitalizaciones';
-$route['hospitalizacion/guardar_hospitalizacion']              = 'Hospitalizacion/guardar_hospitalizacion';
-$route['hospitalizacion/actualizar_hospitalizacion/(:num)']    = 'Hospitalizacion/actualizar_hospitalizacion/$1';
-$route['hospitalizacion/eliminar_hospitalizacion/(:num)']      = 'Hospitalizacion/eliminar_hospitalizacion/$1';
+$route['hospitalizacion/lista_hospitalizaciones']           = 'Hospitalizacion/lista_hospitalizaciones';
+$route['hospitalizacion/guardar_hospitalizacion']           = 'Hospitalizacion/guardar_hospitalizacion';
+$route['hospitalizacion/actualizar_hospitalizacion/(:num)'] = 'Hospitalizacion/actualizar_hospitalizacion/$1';
+$route['hospitalizacion/eliminar_hospitalizacion/(:num)']   = 'Hospitalizacion/eliminar_hospitalizacion/$1';
 
-$route['hospitalizacion/lista_salas']           = 'Hospitalizacion/lista_salas';
-$route['hospitalizacion/guardar_sala']          = 'Hospitalizacion/guardar_sala';
-$route['hospitalizacion/actualizar_sala/(:num)']= 'Hospitalizacion/actualizar_sala/$1';
-$route['hospitalizacion/eliminar_sala/(:num)']  = 'Hospitalizacion/eliminar_sala/$1';
+$route['hospitalizacion/lista_salas']            = 'Hospitalizacion/lista_salas';
+$route['hospitalizacion/guardar_sala']           = 'Hospitalizacion/guardar_sala';
+$route['hospitalizacion/actualizar_sala/(:num)'] = 'Hospitalizacion/actualizar_sala/$1';
+$route['hospitalizacion/eliminar_sala/(:num)']   = 'Hospitalizacion/eliminar_sala/$1';
  
-$route['hospitalizacion/lista_tipos_diagnostico']                   = 'Hospitalizacion/lista_tipos_diagnostico';
-$route['hospitalizacion/guardar_tipo_diagnostico']                  = 'Hospitalizacion/guardar_tipo_diagnostico';
-$route['hospitalizacion/actualizar_tipo_diagnostico/(:num)']        = 'Hospitalizacion/actualizar_tipo_diagnostico/$1';
-$route['hospitalizacion/eliminar_tipo_diagnostico/(:num)']          = 'Hospitalizacion/eliminar_tipo_diagnostico/$1';
+$route['hospitalizacion/lista_tipos_diagnostico']            = 'Hospitalizacion/lista_tipos_diagnostico';
+$route['hospitalizacion/guardar_tipo_diagnostico']           = 'Hospitalizacion/guardar_tipo_diagnostico';
+$route['hospitalizacion/actualizar_tipo_diagnostico/(:num)'] = 'Hospitalizacion/actualizar_tipo_diagnostico/$1';
+$route['hospitalizacion/eliminar_tipo_diagnostico/(:num)']   = 'Hospitalizacion/eliminar_tipo_diagnostico/$1';
 
-
-
-
+$route['hospitalizacion/consulta_hospitalizados'] = 'Hospitalizacion/consulta_hospitalizados';
+$route['hospitalizacion/consulta_por_sala']       = 'Hospitalizacion/consulta_por_sala';

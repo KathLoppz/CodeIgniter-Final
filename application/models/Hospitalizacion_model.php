@@ -135,5 +135,28 @@ class Hospitalizacion_model extends CI_Model {
         $this->db->where('id', $id);
         return $this->db->delete('tipo_diagnostico');
     }
+
+    // CONSULTAS
+    // ver los pacientes que esten en una sala X
+    public function pacientes_por_sala()
+    {
+        $this->db->select('s.nombre AS sala, COUNT(h.id) AS total');
+        $this->db->from('hospitalizacion h');
+        $this->db->join('sala s', 'h.sala_id = s.id');
+        $this->db->where('h.fecha_alta', NULL);
+        $this->db->group_by('s.id');
+        return $this->db->get()->result();
+    }
+
+    //mostrar a los pacientes que aun estan hospitalizados
+    public function pacientes_hospitalizados()
+    {
+        $this->db->select('p.nombre, p.apellido, p.diagnostico, h.fecha_ingreso, s.nombre AS sala');
+        $this->db->from('hospitalizacion h');
+        $this->db->join('paciente p', 'h.paciente_id = p.id');
+        $this->db->join('sala s', 'h.sala_id = s.id');
+        $this->db->where('h.fecha_alta', NULL);
+        return $this->db->get()->result();
+    }
 }
 ?>
