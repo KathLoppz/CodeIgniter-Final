@@ -44,10 +44,10 @@
                         <td><?= $p->id ?></td>
                         <td><?= $p->nombre ?></td>
                         <td><?= $p->apellido ?></td>
-                        <td><?= $p->diagnostico ?></td>
+                        <td><?= $p->tipo_diagnostico ?></td>                        
                         <td>
-                        <a href="<?= site_url('hospitalizacion/editar/'.$p->id) ?>" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#editarModal<?= $p->id ?>">EDITAR</a>                        
-                        <a href="#" onclick="confirmarEliminar(<?= $p->id ?>)" class="btn btn-outline-danger">ELIMINAR</a>
+                            <a href="<?= site_url('hospitalizacion/editar/'.$p->id) ?>" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#editarModal<?= $p->id ?>">EDITAR</a>                        
+                            <a href="#" onclick="confirmarEliminar(<?= $p->id ?>)" class="btn btn-outline-danger">ELIMINAR</a>
                         </td>
                     </tr>
 
@@ -70,8 +70,15 @@
                                         <input type="text" name="apellido" class="form-control" value="<?= $p->apellido ?>" required>
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label">Diagnostico</label>
-                                        <input type="text" name="diagnostico" class="form-control" value="<?= $p->diagnostico ?>" required>
+                                        <label class="form-label">Tipo de Diagnóstico</label>
+                                        <select name="tipo_diagnostico_id" class="form-select" required>
+                                            <?php foreach ($tipos as $t): ?>
+                                                <option value="<?= $t->id ?>"
+                                                    <?= $t->id == $p->tipo_diagnostico_id ? 'selected' : '' ?>>
+                                                    <?= $t->nombre ?>
+                                                </option>
+                                            <?php endforeach; ?>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -104,10 +111,14 @@
                             <label class="form-label">Apellido</label>
                             <input type="text" name="apellido" class="form-control" required>
                         </div>
-
                         <div class="mb-3">
-                            <label class="form-label">Diagnostico</label>
-                            <input type="text" name="diagnostico" class="form-control" required>
+                            <label class="form-label">Tipo de Diagnóstico</label>
+                            <select name="tipo_diagnostico_id" class="form-select" required>
+                                <option value="">-- Seleccionar --</option>
+                                <?php foreach ($tipos as $t): ?>
+                                    <option value="<?= $t->id ?>"><?= $t->nombre ?></option>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
                     </div>
                     <div class="modal-footer">

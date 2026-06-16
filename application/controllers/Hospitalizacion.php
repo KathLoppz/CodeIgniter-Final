@@ -24,7 +24,7 @@ class Hospitalizacion extends CI_Controller
     public function index()
     {
         $data['paciente'] = $this->Hospitalizacion_model->obtener_paciente();
-
+        $data['tipos']    = $this->Hospitalizacion_model->obtener_tipos_diagnostico();
         $this->load->view('hospitalizacion/index', $data);
     }
 
@@ -41,7 +41,7 @@ class Hospitalizacion extends CI_Controller
         // para numeros sin decimales - required|integer
         $this->form_validation->set_rules('nombre','Nombre','required');
         $this->form_validation->set_rules('apellido','Apellido','required'); 
-        $this->form_validation->set_rules('diagnostico','Diagnostico','required');
+        $this->form_validation->set_rules('tipo_diagnostico_id', 'Tipo de Diagnostico', 'required');
 
         if($this->form_validation->run() == FALSE){
             $this->load->view('hospitalizacion/form');
@@ -50,7 +50,7 @@ class Hospitalizacion extends CI_Controller
             $data = [
                 'nombre' => $this->input->post('nombre'),
                 'apellido' => $this->input->post('apellido'),
-                'diagnostico' => $this->input->post('diagnostico'),
+                'tipo_diagnostico_id' => $this->input->post('tipo_diagnostico_id'),
             ];
             $this->Hospitalizacion_model->crear($data);
             redirect('hospitalizacion');
@@ -67,7 +67,7 @@ class Hospitalizacion extends CI_Controller
     public function actualizar($id){
         $this->form_validation->set_rules('nombre','Nombre','required');
         $this->form_validation->set_rules('apellido','Apellido','required'); 
-        $this->form_validation->set_rules('diagnostico','Diagnostico','required');
+        $this->form_validation->set_rules('tipo_diagnostico_id', 'Tipo de Diagnostico', 'required');
 
         if($this->form_validation->run() == FALSE){
             $data['paciente'] = $this->Hospitalizacion_model->get_by_id($id);
@@ -77,7 +77,7 @@ class Hospitalizacion extends CI_Controller
             $data = [
                 'nombre' => $this->input->post('nombre'),
                 'apellido' => $this->input->post('apellido'),
-                'diagnostico' => $this->input->post('diagnostico'),
+                'tipo_diagnostico_id' => $this->input->post('tipo_diagnostico_id'),
             ];
             $this->Hospitalizacion_model->actualizar($id,$data);
             redirect('hospitalizacion');

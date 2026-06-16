@@ -11,15 +11,19 @@ class Hospitalizacion_model extends CI_Model {
 
     public function obtener_paciente()
     {
-        $query = $this->db->get('paciente');
-        return $query->result();
+        $this->db->select('p.*, t.nombre AS tipo_diagnostico');
+        $this->db->from('paciente p');
+        $this->db->join('tipo_diagnostico t', 'p.tipo_diagnostico_id = t.id');
+        return $this->db->get()->result();
     }
 
-    public function get_by_id($id){
-        $query = $this->db
-                      ->where('id', $id)
-                      ->get('paciente');
-        return $query->row_array();
+    public function get_by_id($id)
+    {
+        $this->db->where('p.id', $id);
+        $this->db->select('p.*, t.nombre AS tipo_diagnostico');
+        $this->db->from('paciente p');
+        $this->db->join('tipo_diagnostico t', 'p.tipo_diagnostico_id = t.id');
+        return $this->db->get()->row_array();
     }
 
     public function crear($data){
