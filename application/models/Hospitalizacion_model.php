@@ -155,10 +155,11 @@ class Hospitalizacion_model extends CI_Model {
     //mostrar a los pacientes que aun estan hospitalizados
     public function pacientes_hospitalizados()
     {
-        $this->db->select('p.nombre, p.apellido, p.diagnostico, h.fecha_ingreso, s.nombre AS sala');
+        $this->db->select('p.nombre, p.apellido, t.nombre AS diagnostico, h.fecha_ingreso, s.nombre AS sala');
         $this->db->from('hospitalizacion h');
         $this->db->join('paciente p', 'h.paciente_id = p.id');
         $this->db->join('sala s', 'h.sala_id = s.id');
+        $this->db->join('tipo_diagnostico t', 'p.tipo_diagnostico_id = t.id');
         $this->db->where('h.fecha_alta', NULL);
         return $this->db->get()->result();
     }
